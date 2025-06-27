@@ -408,17 +408,17 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 		header=header,
 		alignment=Alignment.CENTER,
 		allow_skip=True,
-		default_text=str(preset) if preset is not None else None,
 		allow_reset=True,
+		default_text=str(preset),
 		validator=validate_iter_time,
 	).input()
 
 	match result.type_:
 		case ResultType.Skip:
 			return preset
+		case ResultType.Reset:
+			return DEFAULT_ITER_TIME
 		case ResultType.Selection:
-			if not result.text():
-				return DEFAULT_ITER_TIME
 			return int(result.text())
 		case ResultType.Reset:
 			return None
