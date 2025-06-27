@@ -399,6 +399,8 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 		except ValueError:
 			return tr('Please enter a valid number')
 
+
+	header = tr('current preset: ') + str(preset) + '\n'
 	result = EditMenu(
 		tr('Iteration time (ms)'),
 		header=header,
