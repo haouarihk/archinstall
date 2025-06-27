@@ -607,10 +607,13 @@ class EditMenu(AbstractCurses[str]):
 			return self.kickoff(win)
 
 		with open('logs.txt', 'a') as f:
-				f.write(f'last_state: {self._last_state}\n')
+			f.write(f'type: {self._last_state.type_} \n')
 
 		if self._last_state.type_ == ResultType.Selection:
 			text = self._get_input_text()
+
+			with open('logs.txt', 'a') as f:
+				f.write(f'type: {self._last_state.type_} current_text: {self._current_text} real_input: {self._real_input} text: {text} \n')
 
 			if text is None:
 				return self.kickoff(win)
