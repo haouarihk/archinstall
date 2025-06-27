@@ -592,7 +592,7 @@ class EditMenu(AbstractCurses[str]):
 			if self._set_default_info and self._info_vp:
 				self._info_vp.update([self._only_ascii_text], 0)
 
-			self._input_vp.edit(default_text=self._current_text)
+			self._input_vp.edit(default_text=self._real_input)
 
 	@override
 	def kickoff(self, win: curses.window) -> Result[str]:
