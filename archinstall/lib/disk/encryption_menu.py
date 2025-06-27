@@ -67,7 +67,7 @@ class DiskEncryptionMenu(AbstractSubMenu[DiskEncryption]):
 			),
 			MenuItem(
 				text=tr('Iteration time'),
-				action=select_iteration_time,
+				action=lambda x: select_iteration_time(),
 				value=self._enc_config.iter_time,
 				dependencies=[self._check_dep_enc_type],
 				preview_action=self._preview,
@@ -418,7 +418,9 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 			return preset
 		case ResultType.Reset:
 			return DEFAULT_ITER_TIME
-		case ResultType.Selection:
+		case ResultType.Selection: 
+			if not result.text():
+				return DEFAULT_ITER_TIME
 			return int(result.text())
 		case ResultType.Reset:
 			return None
