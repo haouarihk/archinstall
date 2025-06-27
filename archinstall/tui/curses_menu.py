@@ -566,14 +566,14 @@ class EditMenu(AbstractCurses[str]):
 				self._info_vp.update([entry], 0)
 				self._set_default_info = False
 
-				if not self._hide_input:
-					self._input_vp.edit(default_text=text)
-					return None
-
 				self.clear_all()
+				
+				if not self._hide_input:
+					return self._real_input
 
 				self._real_input = ''
 				return None
+				
 
 		return text
 
