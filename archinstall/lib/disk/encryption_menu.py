@@ -386,7 +386,7 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 	header += tr(f'Default: {DEFAULT_ITER_TIME}ms, Recommended range: 1000-60000') + '\n'
 
 	def validate_iter_time(value: str | None) -> str | None:
-		print(f'value: {value}')
+		header += tr('current preset: ') + str(preset) + '\n'
 		if not value:
 			return None
 
@@ -400,14 +400,13 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 		except ValueError:
 			return tr('Please enter a valid number')
 
-
-	header = tr('current preset: ') + str(preset) + '\n'
 	result = EditMenu(
 		tr('Iteration time (ms)'),
 		header=header,
 		alignment=Alignment.CENTER,
 		allow_skip=True,
 		default_text=str(preset) if preset else str(DEFAULT_ITER_TIME),
+		allow_reset=True,
 		validator=validate_iter_time,
 	).input()
 
