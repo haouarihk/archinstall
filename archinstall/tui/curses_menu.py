@@ -561,6 +561,8 @@ class EditMenu(AbstractCurses[str]):
 
 		if self._hide_input:
 			self.clear_all()
+		else:
+			self._input_vp.edit(default_text=self._current_text)
 
 		if self._validator:
 			if (err := self._validator(text)) is not None:
