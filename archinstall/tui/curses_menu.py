@@ -606,6 +606,9 @@ class EditMenu(AbstractCurses[str]):
 		if self._last_state is None:
 			return self.kickoff(win)
 
+		with open('logs.txt', 'a') as f:
+				f.write(f'last_state: {self._last_state}\n')
+
 		if self._last_state.type_ == ResultType.Selection:
 			text = self._get_input_text()
 
