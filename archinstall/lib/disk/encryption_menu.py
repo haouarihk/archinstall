@@ -384,9 +384,11 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 	header = tr('TESTING TESTING TESTING') + '\n'
 	header += tr('Higher values increase security but slow down boot time') + '\n'
 	header += tr(f'Default: {DEFAULT_ITER_TIME}ms, Recommended range: 1000-60000') + '\n'
+	header += tr('current preset: ') + str(preset) + '\n'
 
 	def validate_iter_time(value: str | None) -> str | None:
-		header += tr('current preset: ') + str(preset) + '\n'
+		with open('logs.txt', 'a') as f:
+			f.write(f'value: {value}\n')
 		if not value:
 			return None
 
