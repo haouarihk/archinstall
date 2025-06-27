@@ -390,8 +390,8 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 		with open('logs.txt', 'a') as f:
 			f.write(f'value: {value} preset: {preset}\n')
 
-		if not value:
-			return None
+		if value is None:
+			return tr('Please enter a valid number')
 
 		try:
 			iter_time = int(value)
