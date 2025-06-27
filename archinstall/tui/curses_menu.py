@@ -562,7 +562,9 @@ class EditMenu(AbstractCurses[str]):
 
 		if self._validator:
 			if (err := self._validator(text)) is not None:
-				self.clear_all()
+				if self._hide_input:
+					self.clear_all()
+
 				entry = ViewportEntry(err, 0, 0, STYLE.ERROR)
 				self._info_vp.update([entry], 0)
 				self._set_default_info = False
