@@ -567,9 +567,10 @@ class EditMenu(AbstractCurses[str]):
 				self._set_default_info = False
 
 				self.clear_all()
-				
+
 				if not self._hide_input:
-					return self._real_input
+					self._draw()
+					return None
 
 				self._real_input = ''
 				return None
