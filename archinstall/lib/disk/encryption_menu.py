@@ -413,7 +413,7 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 			return preset
 		case ResultType.Selection:
 			if not result.text():
-				return preset
+				return DEFAULT_ITER_TIME
 			return int(result.text())
 		case ResultType.Reset:
 			return None
