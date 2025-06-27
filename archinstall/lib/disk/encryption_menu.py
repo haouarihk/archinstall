@@ -388,7 +388,8 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 
 	def validate_iter_time(value: str | None) -> str | None:
 		with open('logs.txt', 'a') as f:
-			f.write(f'value: {value}\n')
+			f.write(f'value: {value} preset: {preset}\n')
+
 		if not value:
 			return None
 
