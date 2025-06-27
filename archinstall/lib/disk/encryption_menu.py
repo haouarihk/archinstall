@@ -408,7 +408,7 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 		header=header,
 		alignment=Alignment.CENTER,
 		allow_skip=True,
-		default_text=str(preset) if preset else str(DEFAULT_ITER_TIME),
+		default_text=str(preset) if preset is not None else None,
 		allow_reset=True,
 		validator=validate_iter_time,
 	).input()
