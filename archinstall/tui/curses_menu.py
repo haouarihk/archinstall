@@ -556,13 +556,9 @@ class EditMenu(AbstractCurses[str]):
 		assert self._input_vp
 		assert self._info_vp
 
-		self._draw()
 		text = self._real_input
 
-		if self._hide_input:
-			self.clear_all()
-		else:
-			self._input_vp.edit(default_text=self._current_text)
+		self.clear_all()
 
 		if self._validator:
 			if (err := self._validator(text)) is not None:
@@ -571,6 +567,7 @@ class EditMenu(AbstractCurses[str]):
 				self._set_default_info = False
 
 				if not self._hide_input:
+					self._input_vp.edit(default_text=text)
 					return None
 
 				self.clear_all()
