@@ -386,6 +386,7 @@ def select_iteration_time(preset: int | None = None) -> int | None:
 	header += tr(f'Default: {DEFAULT_ITER_TIME}ms, Recommended range: 1000-60000') + '\n'
 
 	def validate_iter_time(value: str | None) -> str | None:
+		print(f'value: {value}')
 		if not value:
 			return None
 
