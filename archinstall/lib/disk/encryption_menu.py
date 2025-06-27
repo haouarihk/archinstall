@@ -381,7 +381,7 @@ def select_lvm_vols_to_encrypt(
 
 
 def select_iteration_time(preset: int | None = None) -> int | None:
-	header = tr('Enter iteration time for LUKS encryption (in milliseconds)') + '\n'
+	header = tr('TESTING TESTING TESTING') + '\n'
 	header += tr('Higher values increase security but slow down boot time') + '\n'
 	header += tr(f'Default: {DEFAULT_ITER_TIME}ms, Recommended range: 1000-60000') + '\n'
 
